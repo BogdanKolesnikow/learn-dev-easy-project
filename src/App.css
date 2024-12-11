@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dash {
+  opacity: 0;
+  animation: dashAnimation 1.7s forwards 0.7s; /* Задержка для анимации тире */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes dashAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  background: url('./assets/1.jpg') no-repeat center center / cover;
   color: white;
+  text-align: center;
+  color: #d8dff0;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.6s; /* Ускорена анимация */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.description {
+  font-size: 1.2rem;
+  margin-top: 1.1rem;
+}
+
+.title {
+  font-family: 'Abril Fatface', serif;
+  font-size: 11rem;
+  margin: 0;
+  margin-right: 32rem;
+  margin-top: -16rem;
+  opacity: 0;
+  animation: fadeIn 0.7s forwards 0.4s;
+}
+
+.about {
+  text-align: right;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #d8dff0;
+  margin-right: -27rem;
+  margin-top: -12.5rem;
+  opacity: 0;
+  animation: fadeIn 2s forwards 0.9s; /* Ускорена анимация */
+}
+
+.manual{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.7rem;
+  margin-left: 72%;
+  top: 100px;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Начальная позиция — немного ниже */
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Конечная позиция — нормальная */
+  }
+}
+
+.docs {
+  position: absolute;
+  top: 5%; /* Отступ от верхнего края */
+  left: 86%; /* Центрируем по горизонтали */
+  transform: translateX(-50%); /* Корректируем центрирование */
+  animation: fadeInUp 0.7s ease-out forwards; /* Анимация плавного появления и подъема */
+}
+
+.docs button {
+  font-size: 1.5625rem;
+  margin: 0; 
+  font-family: 'Quicksand', sans-serif;
+  text-decoration: underline;
+  
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #d8dff0;
+  animation: fadeInUp 0.7s ease-out forwards 0.4s; /* Задержка анимации для кнопки */
+}
+
+.docs button:focus {
+  outline: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

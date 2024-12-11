@@ -1,0 +1,19 @@
+#terminal {
+    height: 400px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+  }  
+  
+#command-history {
+    background-color: #1e1e1e;
+    color: #c5c5c5;
+    padding: 10px;
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-family: monospace;
+  }
+  

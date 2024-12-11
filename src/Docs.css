@@ -1,0 +1,183 @@
+.docs-container {
+    display: flex;
+    justify-content: center; /* Центрируем контейнер по горизонтали */
+    align-items: flex-start; /* Центрируем контейнер по вертикали, оставляем место для боковой панели */
+    height: 100vh;
+    background-color: #1b1b1b;
+    background-size: cover;
+    background-position: center;
+    animation: fadeIn 2s ease-out;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 5.1%; /* Отступ от верхнего края */
+    left: 86%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Корректируем центрирование */
+    font-size: 1.5625rem;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: underline;
+    
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #d8dff0;
+    animation: fadeInUp 0.7s ease-out forwards 0.4s; /* Задержка анимации */
+  }
+  
+  .back-button:focus {
+    outline: none;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  .sidebar {
+    width: 250px;
+    background-color: #1b1b1b;
+    color: #d8dff0;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 1s ease-out;
+    margin-right: 45%;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left; /* Текст будет выровнен по левому краю */
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 15px; /* Отступы между элементами */
+    position: relative;
+  }
+  
+  .sidebar ul li:first-child {
+    margin-top: 12.5px; /* Отступ сверху для первого подзаголовка */
+  }
+  
+  .sidebar ul li a {
+    color: #d8dff0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInLink 2s ease-out forwards;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #a0b0c0;
+  }
+  
+  .sidebar ul li a::before {
+    content: none; /* Убираем клювик */
+  }
+  
+  .sidebar ul li ul {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none; /* Скрываем подменю по умолчанию */
+  }
+  
+  .sidebar ul li.open ul {
+    display: block; /* Показываем подменю, если элемент открыт */
+  }
+  
+  .content {
+    margin-left: 35%;
+    padding: 40px;
+    width: 80%;
+    color: #d8dff0;
+    text-align: justify;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInContent 2s ease-out forwards;
+  }
+  
+  .content h1 {
+    color: #d8dff0;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    animation: slideInText 1s ease-out;
+  }
+  
+  .content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .content a {
+    color: #0078d4;
+    text-decoration: none;
+  }
+  
+  .content a:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInContent {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInLink {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInText {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

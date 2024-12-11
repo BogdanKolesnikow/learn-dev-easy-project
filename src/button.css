@@ -1,0 +1,62 @@
+.button1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 700px;
+    left: 39.5%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.8s; /* Ускорена анимация */
+  }
+  
+  .button1 button {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5a5353;
+    background-color: #d8dff0;
+    border: 1px solid #d8dff0;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .button1 button:active {
+    background-color: #d8dff0;  
+    transform: scale(0.95);
+  }
+
+  .button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 700px;
+    left: 59%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.8s; /* Ускорена анимация */
+  }
+  
+  .button2 button {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5a5353;
+    background-color: #d8dff0;
+    border: 1px solid #d8dff0;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .button2 button:active {
+    background-color: #d8dff0;
+    transform: scale(0.95);
+  }
+  
