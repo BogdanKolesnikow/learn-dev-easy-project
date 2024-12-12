@@ -26,7 +26,7 @@
 /* Стили для обводки блока */
 .flowchart-link-wrapper {
   position: relative;
-  margin: 10px 0;
+  margin: 12px 0; /* Отступ между блоками 12px */
 }
 
 /* Стили для блоков */
@@ -57,12 +57,12 @@
 .flowchart-arrow {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 20px solid #e2e2e2; /* Стрелка */
+  border-left: 8px solid transparent; /* Немного уменьшена ширина */
+  border-right: 8px solid transparent; /* Немного уменьшена ширина */
+  border-top: 15px solid #e2e2e2; /* Уменьшена высота стрелки */
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 10px;
+  margin-top: 10px; /* Уменьшен отступ сверху */
 }
