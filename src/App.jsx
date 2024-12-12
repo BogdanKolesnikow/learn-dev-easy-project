@@ -27,7 +27,9 @@ function App() {
         </Link>
       </div>
       <div className="button2">
-        <button>Эмулировать алгоритмы</button>
+        <Limk to="/AlgorithmPage">
+          <button>Эмулировать алгоритмы</button>
+        </Limk>
       </div>
       <div className='docs'>
         <Link to="/docs">

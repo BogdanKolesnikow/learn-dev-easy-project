@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Terminal } from 'xterm';
 import 'xterm/css/xterm.css'; // Подключаем стили xterm
 import './term.css'; // Подключаем собственные стили
-import Flowchart from './Flowchart'; // Импортируем компонент блок-схемы
 
 
 function LinuxEmulation() {
@@ -340,147 +339,16 @@ function LinuxEmulation() {
     }
   }, [commandHistory]); // Убираем зависимость от commandHistory, чтобы избежать асинхронных проблем
 
-
-// ---------------------------------------------------------------------------------------------------------------------------------
-//                      ПОВТОРЕНИЕ СПИСКА КОМАНД ДЛЯ ВЫВОДА БЛОК СХЕМОЙ
-const whiteList = [
-  'ls',
-  'pwd',
-  'echo',
-  'clear',
-  'help',
-  'date',
-  'whoami',
-  'uname',
-  'cat',
-  'touch',
-  'mkdir',
-  'rmdir',
-  'cd',
-  'mv',
-  'cp',
-  'find',
-  'grep',
-  'chmod',
-  'ping',
-  'df',
-  'du',
-  'top',
-  'ps',
-  'kill',
-  'exit',
-  'history',
-  'cat >',
-  'touch',
-]; // Белый список команд
-const blackList = ['rm', 'shutdown', 'reboot']; // Чёрный список команд
-// ---------------------------------------------------------------------------------------------------------------------------------
-
-
-  const [currentDirectory, setCurrentDirectory] = useState('/home/user');
-
-  // Обновлённая функция для получения вывода команды
-  function getOutputForCommand(command) {
-    const [cmd, ...args] = command.split(' '); // Разделяем команду и аргументы
-    let output = '';
-
-    // Если команда из чёрного списка
-    if (blackList.includes(cmd)) {
-      output = `Ошибка: Команда "${cmd}" запрещена!`;
-    }
-    // Если команда из белого списка
-    else if (whiteList.includes(cmd)) {
-      switch (cmd) {
-        case 'cd': {
-          const newDir = args[0]; // Получаем новый путь для cd
-          if (!newDir) {
-            output = '/home/user/undefined';
-          } else {
-            setCurrentDirectory(`${currentDirectory}/${newDir}`);
-            output = `${currentDirectory}/${newDir}`;
-          }
-          break;
-        }
-        case 'pwd': {
-          output = currentDirectory; // Показываем текущую директорию
-          break;
-        }
-        case 'ls': {
-          output = 'file1.txt file2.txt folder1 folder2'; // Пример вывода для ls
-          break;
-        }
-        case 'echo': {
-          output = args.join(' '); // Эхо выводит аргументы
-          break;
-        }
-        case 'clear': {
-          output = ''; // Очистка экрана
-          break;
-        }
-        case 'help': {
-          output = 'Список доступных команд: ' + whiteList.join(', '); // Помощь
-          break;
-        }
-        case 'date': {
-          output = new Date().toLocaleString(); // Дата
-          break;
-        }
-        case 'whoami': {
-          output = 'user'; // Имя пользователя
-          break;
-        }
-        case 'uname': {
-          output = 'Linux'; // Имя системы
-          break;
-        }
-        // Можно добавить дополнительные кейсы для других команд
-        default: {
-          output = `${cmd} command executed`;
-          break;
-        }
-      }
-    } else {
-      // Если команда не из белого списка
-      output = `Command not recognized: "${cmd}"`;
-    }
-
-    return output;
-  }
-
-
   return (
     <div>
       <h1>Эмулятор Linux</h1>
-      <div className="terminal-wrapper">
-        <div ref={terminalRef} id="terminal" style={{ height: '800px', width: '45%' }}></div>
-      </div>
-
+      <div ref={terminalRef} style={{ height: '400px', width: '100%' }}/>
       
-      {/* Закомментирован первый блок */}
       <div className='com-history-txt'><h2>История команд</h2></div>
-      <div id="command-history" style={{ height: '200px', width: '40%' }}>
+      <div id="command-history" style={{ height: '300px', width: '40%' }}>
         {commandHistory.map((entry, index) => (
           <div key={index}>{entry}</div>
         ))}
-      </div>
-  
-      <h2>График выполнения команд</h2>
-      <div className="flowchart-wrapper">
-        <div className="flowchart-container">
-          {commandHistory.map((command, index) => (
-            <div key={index} className="flowchart-link-wrapper">
-              <div className={`flowchart-block ${command}`}>
-                <div className="block-content">
-                  {/* Команда */}
-                  <div className="command">{`${command}`}</div>
-                  
-                  {/* Вывод команды */}
-                  <div className="output">{`Output: ${getOutputForCommand(command)}`}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
