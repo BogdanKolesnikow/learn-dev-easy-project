@@ -451,11 +451,14 @@ const blackList = ['rm', 'shutdown', 'reboot']; // Чёрный список к�
   return (
     <div>
       <h1>Эмулятор Linux</h1>
-      <div ref={terminalRef} style={{ height: '400px', width: '100%' }}></div>
+      <div className="terminal-wrapper">
+        <div ref={terminalRef} id="terminal" style={{ height: '800px', width: '45%' }}></div>
+      </div>
+
       
       {/* Закомментирован первый блок */}
-      <h2>История команд</h2>
-      <div id="command-history">
+      <div className='com-history-txt'><h2>История команд</h2></div>
+      <div id="command-history" style={{ height: '200px', width: '40%' }}>
         {commandHistory.map((entry, index) => (
           <div key={index}>{entry}</div>
         ))}
