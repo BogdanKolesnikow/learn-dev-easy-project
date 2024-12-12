@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Terminal } from 'xterm';
 import 'xterm/css/xterm.css'; // Подключаем стили xterm
 import './term.css'; // Подключаем собственные стили
+import Flowchart from './Flowchart'; // Импортируем компонент блок-схемы
+
 
 function LinuxEmulation() {
   const [commandHistory, setCommandHistory] = useState([]); // История команд
@@ -338,15 +340,52 @@ function LinuxEmulation() {
     }
   }, [commandHistory]); // Убираем зависимость от commandHistory, чтобы избежать асинхронных проблем
 
+  function getOutputForCommand(command) {
+    const lastCommand = commandHistory.find(cmd => cmd.startsWith(`$ ${command}`));
+    if (lastCommand) {
+      const output = commandHistory
+        .filter(cmd => cmd.startsWith(`Output: ${lastCommand.trim()}`))
+        .map(outputCmd => outputCmd.replace('Output: ', ''))
+        .join('\r\n');
+      return output;
+    }
+    return ''; // Если нет вывода для команды, возвращаем пустую строку
+  }
+
   return (
     <div>
       <h1>Эмулятор Linux</h1>
       <div ref={terminalRef} style={{ height: '400px', width: '100%' }}></div>
+      
       <h2>История команд</h2>
       <div id="command-history">
         {commandHistory.map((entry, index) => (
           <div key={index}>{entry}</div>
         ))}
+      </div>
+  
+      <h2>График выполнения команд</h2>
+      <div className="flowchart-wrapper">
+        <div className="flowchart-container">
+          {commandHistory.map((command, index) => (
+            <>
+              <div className="flowchart-link-wrapper">
+                <div key={index} className={`flowchart-block ${command}`}>
+                  <div className="block-content">
+                    {/* Команда */}
+                    <div className="command">{command}</div>
+  
+                    {/* Вывод команды */}
+                    <div className="output">{getOutputForCommand(command)}</div>
+                  </div>
+                </div>
+                {index < commandHistory.length - 1 && (
+                  <div key={`arrow-${index}`} className="flowchart-arrow"></div>
+                )}
+              </div>
+            </>
+          ))}
+        </div>
       </div>
     </div>
   );

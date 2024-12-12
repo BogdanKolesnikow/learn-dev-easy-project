@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client'; // Используем createRoot из react-dom/client
-import './index.css'; // глобальные стили
-import App from './App.jsx'; // компонент App
-import Docs from './Docs'; // компонент Docs
-import LinuxEmulation from './xterm/term.js'; // компонент для эмуляции Linux
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Изменили Switch на Routes
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css"; // глобальные стили
+import App from "./App.jsx"; // компонент App
+import Docs from "./Docs"; // компонент Docs
+import LinuxEmulation from "./xterm/term.js"; // компонент для эмуляции Linux
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Изменили Switch на Routes
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>

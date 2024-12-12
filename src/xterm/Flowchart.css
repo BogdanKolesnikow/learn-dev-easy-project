@@ -1,0 +1,68 @@
+/* Общий стиль для обертки блок-схемы (контейнер с закругленными углами) */
+.flowchart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid #555555; /* Темная граница */
+  border-radius: 20px; /* Закругленные углы */
+  background-color: #333333; /* Темный фон контейнера */
+  width: 600px; /* Фиксированная ширина */
+  height: 400px; /* Фиксированная высота */
+  overflow: hidden; /* Чтобы не показывать лишние части */
+}
+
+/* Общие стили для контейнера блок-схемы */
+.flowchart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto; /* Полоса прокрутки по вертикали */
+  height: 100%;
+  width: 100%;
+}
+
+/* Стили для обводки блока */
+.flowchart-link-wrapper {
+  position: relative;
+  margin: 10px 0;
+}
+
+/* Стили для блоков */
+.flowchart-block {
+  background-color: #333333; /* Темно-серый фон */
+  color: #ffffff; /* Белый текст */
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для обводки между блоками */
+.flowchart-link-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid white; /* Белая обводка */
+  border-radius: 15px;
+  z-index: -1; /* Помещаем обводку позади блоков */
+}
+
+/* Стрелки */
+.flowchart-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #e2e2e2; /* Стрелка */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+}
