@@ -454,12 +454,12 @@ const blackList = ['rm', 'shutdown', 'reboot']; // Чёрный список к�
       <div ref={terminalRef} style={{ height: '400px', width: '100%' }}></div>
       
       {/* Закомментирован первый блок */}
-      {/* <h2>История команд</h2>
+      <h2>История команд</h2>
       <div id="command-history">
         {commandHistory.map((entry, index) => (
           <div key={index}>{entry}</div>
         ))}
-      </div> */}
+      </div>
   
       <h2>График выполнения команд</h2>
       <div className="flowchart-wrapper">
